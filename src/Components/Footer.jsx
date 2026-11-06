@@ -1,10 +1,10 @@
 const NAV = [
-  { id: 'inicio', label: 'Início' },
-  { id: 'sobre', label: 'Sobre Nós' },
-  { id: 'areas', label: 'Áreas de Atuação' },
-  { id: 'artigos', label: 'Artigos' },
-  { id: 'contato', label: 'Contato' },
-]
+  { id: "inicio", label: "Início" },
+  { id: "sobre", label: "Sobre Nós" },
+  { id: "areas", label: "Áreas de Atuação" },
+  { id: "artigos", label: "Artigos" },
+  { id: "contato", label: "Contato" },
+];
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <img
-              src="/logo-footer.png"
+              src="/artigo-previdenciario.jpg"
               alt="Souza & Jacome Advogados Associados"
               className="footer-logo-img"
             />
@@ -47,11 +47,12 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span>
-            © 2026 Souza &amp; Jacome Advogados Associados. Todos os direitos reservados.
+            © 2026 Souza &amp; Jacome Advogados Associados. Todos os direitos
+            reservados.
           </span>
           <span>OAB/SP — Advocacia Ética e Comprometida</span>
         </div>
       </div>
     </footer>
-  )
+  );
 }

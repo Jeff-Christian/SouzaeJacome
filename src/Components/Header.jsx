@@ -1,32 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+
+// import images
+import logo from "../assets/logo-header.png";
 
 const LINKS = [
-  { id: 'inicio', label: 'INÍCIO' },
-  { id: 'sobre', label: 'SOBRE NÓS' },
-  { id: 'areas', label: 'ÁREAS DE ATUAÇÃO' },
-  { id: 'artigos', label: 'ARTIGOS' },
-  { id: 'contato', label: 'CONTATO' },
-]
+  { id: "inicio", label: "INÍCIO" },
+  { id: "sobre", label: "SOBRE NÓS" },
+  { id: "areas", label: "ÁREAS DE ATUAÇÃO" },
+  { id: "artigos", label: "ARTIGOS" },
+  { id: "contato", label: "CONTATO" },
+];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [active, setActive] = useState('inicio')
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("inicio");
 
   // Destaca no menu a seção que está visível na tela
   useEffect(() => {
     const onScroll = () => {
-      const offset = window.scrollY + 140
-      let current = LINKS[0].id
+      const offset = window.scrollY + 140;
+      let current = LINKS[0].id;
       for (const { id } of LINKS) {
-        const el = document.getElementById(id)
-        if (el && el.offsetTop <= offset) current = id
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= offset) current = id;
       }
-      setActive(current)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header>
@@ -37,19 +40,19 @@ export default function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <img
-            src="/logo-header.png"
+            src={logo}
             alt="Souza & Jacome Advogados Associados"
             className="logo-img"
           />
         </a>
 
-        <nav className={menuOpen ? 'open' : ''}>
+        <nav className={menuOpen ? "open" : ""}>
           <ul>
             {LINKS.map(({ id, label }) => (
               <li key={id}>
                 <a
                   href={`#${id}`}
-                  className={active === id ? 'active' : ''}
+                  className={active === id ? "active" : ""}
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -75,5 +78,5 @@ export default function Header() {
         </button>
       </div>
     </header>
-  )
+  );
 }
